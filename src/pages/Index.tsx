@@ -1,23 +1,27 @@
 import { Loader } from "@/components/sections/Loader";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
+import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { Journal } from "@/components/sections/Journal";
+import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 
 const Index = () => {
   return (
-    <div className="relative bg-background text-foreground overflow-x-hidden">
+    <div className="relative bg-background text-foreground overflow-x-hidden min-h-screen">
       <Loader />
       <Nav />
       <main>
         <Hero />
-        <Manifesto />
+        <Services />
         <Work />
+        <WhyUs />
+        <Stats />
         <Testimonials />
-        <Journal />
+        <CTA />
       </main>
       <Footer />
     </div>
