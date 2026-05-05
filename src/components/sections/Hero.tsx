@@ -17,29 +17,26 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-background/40" />
 
       {/* floating coin */}
-      <motion.div
+      <motion.a
+        href="#contact"
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute top-32 right-10 md:right-20 w-28 h-28 md:w-40 md:h-40 rounded-full border border-primary/40 flex items-center justify-center animate-float"
+        className="absolute top-28 right-6 md:top-32 md:right-20 w-32 h-32 md:w-44 md:h-44 rounded-full border border-primary/40 flex items-center justify-center animate-float group"
       >
         <div className="absolute inset-2 rounded-full border border-primary/20" />
-        <div className="animate-spin-slow font-display text-[10px] tracking-[0.3em] uppercase text-primary/80">
-          {Array.from("• work with us • work with us ").map((c, i) => (
-            <span
-              key={i}
-              className="absolute left-1/2 top-1/2"
-              style={{
-                transform: `rotate(${i * 12}deg) translateY(-${window.innerWidth < 768 ? 48 : 70}px)`,
-                transformOrigin: "0 0",
-              }}
-            >
-              {c}
-            </span>
-          ))}
+        <div className="absolute inset-0 animate-spin-slow">
+          <svg viewBox="0 0 200 200" className="w-full h-full">
+            <defs>
+              <path id="circlePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+            </defs>
+            <text fill="hsl(var(--primary))" className="font-display" style={{ fontSize: 13, letterSpacing: "0.35em", textTransform: "uppercase" }}>
+              <textPath href="#circlePath">• work with us • work with us </textPath>
+            </text>
+          </svg>
         </div>
-        <span className="font-serif italic text-primary text-2xl">G</span>
-      </motion.div>
+        <span className="font-serif italic text-primary text-3xl group-hover:scale-110 transition-transform">G</span>
+      </motion.a>
 
       <div className="relative z-10 px-6 md:px-16 max-w-7xl mx-auto w-full pt-32">
         <motion.p
