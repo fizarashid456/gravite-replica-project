@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import { GoldOrb } from "@/components/three/GoldOrb";
 
 const words = ["design", "development", "content", "planning", "marketing", "production", "3d visualization"];
 
@@ -16,13 +17,17 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-0 bg-background/40" />
 
+      {/* 3D Orb */}
+      <GoldOrb className="absolute inset-0 w-full h-full pointer-events-none opacity-90 mix-blend-screen" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background pointer-events-none" />
+
       {/* floating coin */}
       <motion.a
         href="#contact"
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute top-28 right-6 md:top-32 md:right-20 w-32 h-32 md:w-44 md:h-44 rounded-full border border-primary/40 flex items-center justify-center animate-float group"
+        className="absolute top-28 right-6 md:top-32 md:right-20 w-32 h-32 md:w-44 md:h-44 rounded-full border border-primary/40 flex items-center justify-center animate-float group z-20 backdrop-blur-sm bg-background/20"
       >
         <div className="absolute inset-2 rounded-full border border-primary/20" />
         <div className="absolute inset-0 animate-spin-slow">
