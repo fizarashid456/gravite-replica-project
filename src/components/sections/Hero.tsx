@@ -1,112 +1,89 @@
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
-import { GoldOrb } from "@/components/three/GoldOrb";
-
-const words = ["design", "development", "content", "planning", "marketing", "production", "3d visualization"];
+import { ArrowRight, Play, Star } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden grain">
-      <img
-        src={heroBg}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-        width={1920}
-        height={1080}
-      />
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
+      {/* Animated gradient blobs */}
       <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute inset-0 bg-background/40" />
+      <div className="absolute inset-0 grid-bg" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/30 blur-[120px] animate-blob" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-accent/20 blur-[120px] animate-blob" style={{ animationDelay: "4s" }} />
+      <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] rounded-full bg-[hsl(var(--neon-pink)/0.2)] blur-[120px] animate-blob" style={{ animationDelay: "8s" }} />
 
-      {/* 3D Orb */}
-      <GoldOrb className="absolute inset-0 w-full h-full pointer-events-none opacity-90 mix-blend-screen" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background pointer-events-none" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8"
+        >
+          <span className="flex h-2 w-2 rounded-full bg-accent shadow-glow-cyan animate-pulse" />
+          <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-foreground">Trusted by 200+ teams</span> · Now booking Q3 2026
+          </span>
+        </motion.div>
 
-      {/* floating coin */}
-      <motion.a
-        href="#contact"
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute top-28 right-6 md:top-32 md:right-20 w-32 h-32 md:w-44 md:h-44 rounded-full border border-primary/40 flex items-center justify-center animate-float group z-20 backdrop-blur-sm bg-background/20"
-      >
-        <div className="absolute inset-2 rounded-full border border-primary/20" />
-        <div className="absolute inset-0 animate-spin-slow">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <defs>
-              <path id="circlePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
-            </defs>
-            <text fill="hsl(var(--primary))" className="font-display" style={{ fontSize: 13, letterSpacing: "0.35em", textTransform: "uppercase" }}>
-              <textPath href="#circlePath">• work with us • work with us </textPath>
-            </text>
-          </svg>
-        </div>
-        <span className="font-serif italic text-primary text-3xl group-hover:scale-110 transition-transform">G</span>
-      </motion.a>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-tight"
+        >
+          <span className="text-gradient">Digital products</span><br />
+          that <span className="text-gradient-primary italic">defy gravity.</span>
+        </motion.h1>
 
-      <div className="relative z-10 px-6 md:px-16 max-w-7xl mx-auto w-full pt-32">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.8 }}
-          className="font-display text-xs tracking-[0.4em] uppercase text-primary mb-8"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-8 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed"
         >
-          — Bringing out the revolution
+          We design, build, and scale category-defining brands and software for ambitious founders.
+          From strategy to launch — engineered with obsession.
         </motion.p>
 
-        <h1 className="font-serif italic text-foreground leading-[0.95]">
-          <motion.span
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2, duration: 1 }}
-            className="block text-[14vw] md:text-[10vw]"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold px-7 py-4 rounded-xl shadow-glow hover:scale-105 transition-transform"
           >
-            we are
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.2, duration: 1 }}
-            className="block text-[14vw] md:text-[10vw] text-gradient-gold not-italic font-bold tracking-tight"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            Get Started
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href="#work"
+            className="group inline-flex items-center gap-2 glass text-foreground font-semibold px-7 py-4 rounded-xl hover:border-primary/50 transition-colors"
           >
-            Gravité.
-          </motion.span>
-        </h1>
+            <Play size={16} className="text-accent" /> View Our Work
+          </a>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.6, duration: 1 }}
-          className="mt-10 max-w-2xl"
+          transition={{ duration: 1, delay: 0.8 }}
+          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground"
         >
-          <p className="font-serif text-2xl md:text-3xl text-foreground/80 leading-snug">
-            A digital agency with a strategic approach to{" "}
-            <span className="text-primary italic">{words.slice(0, -1).join(", ")}</span> &{" "}
-            <span className="text-primary italic">{words[words.length - 1]}</span>.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3, duration: 0.8 }}
-          className="mt-16 flex items-center gap-3 text-muted-foreground font-display text-[10px] tracking-[0.4em] uppercase"
-        >
-          <span className="h-px w-10 bg-primary" />
-          Scroll to discover
+          <div className="flex items-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={14} className="fill-accent text-accent" />
+            ))}
+            <span className="ml-2">4.9/5 from 180+ clients</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-border" />
+          <div>Featured in <span className="text-foreground font-medium">TechCrunch · Awwwards · Behance</span></div>
         </motion.div>
       </div>
 
-      {/* marquee at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-border py-5 overflow-hidden bg-background/60 backdrop-blur-sm">
-        <div className="flex marquee whitespace-nowrap">
-          {[...words, ...words, ...words].map((w, i) => (
-            <span key={i} className="font-serif italic text-3xl text-foreground/40 mx-8">
-              {w} <span className="text-primary">✦</span>
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 };
